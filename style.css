@@ -1,9 +1,16 @@
 body{
     background-color: rgb(94, 4, 4) ;
 }
+.turndis{
+    text-align: center;
+    padding: 20px;
+}
 #pdis{
     font-size: xx-large;
-    text-align: center;
+    border: 0px;
+    border-radius: 6px;
+    padding: 20px;
+    display: inline;
 }
 h1.p1{
     color:#f00;
@@ -18,13 +25,16 @@ h1.p2{
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 10px;
-    border: 2px solid #333;
+    border: 0px;
+    border-radius: 3px;
     padding: 10px;
     align-items: center;
     background-color: black;
 }
 .grid button{
     background-color: #333;
+    border-radius: 5px;
+    border: 0px;
     height: 100px;
     width: 100px;
     flex-basis: calc(33.33% - 10px);
@@ -34,9 +44,15 @@ h1.p2{
 }
 button.player1{
     background-color: #f00;
+    font-weight: 600;
+    color: rgb(141, 4, 4);
+    font-size:90px;
 }
 button.player2{
     background-color: blue ;
+    font-weight: 600;
+    color: rgb(8, 8, 141);
+    font-size:90px;
 }
 button.player1:hover{
     background-color: #f00;
