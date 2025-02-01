@@ -1,7 +1,26 @@
 var turn=0;
 let board=[0,0,0,0,0,0,0,0,0,0]
 let winner;
-document.body.style.backgroundColor = "rgb(94, 4, 4)";
+function start(){
+    toggleDis("stage1");
+    toggleDis("stage2");
+}
+function MainMenu(){
+    reset();
+    toggleDis("stage1");
+    toggleDis("stage2");
+}
+function toggleDis(obj_name){
+    var obj = document.getElementsByClassName(obj_name);
+    for (i=0;i<obj.length;i++){
+        if (obj[i].style.display === "none"){
+            obj[i].style.display = "flex";
+        }
+        else{
+            obj[i].style.display = "none";
+        }
+    }
+}
 function play(Id){
     var player1 = "X";
     var player2 = "O";
@@ -24,7 +43,8 @@ function play(Id){
         document.body.style.backgroundColor = "rgb(94, 4, 4)";
     }
     if (wincondition(board)){
-        alert("Congratulations Player"+winner+" wins.");
+        alert("Congratulations Player"+winner+" wins.")
+        //EndGame("Congratulations Player"+winner+" wins.");
         reset();
     }
     else if (turn===9){
@@ -33,6 +53,7 @@ function play(Id){
     }
 
 }
+
 function reset(){
     turn=0;
     board=[0,0,0,0,0,0,0,0,0,0];
@@ -43,6 +64,7 @@ function reset(){
         document.getElementById("pdis").className="p1"
         document.body.style.backgroundColor = "rgb(94, 4, 4)";
     }
+    toggleDis("stage3");
 }
 function wincondition(board){
     if(0!=board[1]&&board[1]==board[4]&&board[1]==board[7]){
@@ -80,4 +102,8 @@ function wincondition(board){
     else{
         return false;
     }
+}
+function EndGame(message){
+    toggleDis("stage3");
+    document.getElementsByClassName("endscr").innerHTML=message;
 }
