@@ -1,6 +1,8 @@
 var turn=0;
 let board=[0,0,0,0,0,0,0,0,0,0]
 let winner;
+let p1s=0;
+let p2s=0;
 function start(){
     toggleDis("stage1");
     toggleDis("stage2");
@@ -13,6 +15,9 @@ function MainMenu(where){
     if (where=="back"){
         toggleDis("stage3"); 
     }
+    p1s=0;
+    p2s=0;
+    updateScore();
     document.body.style.backgroundColor= "rgb(255, 255, 255)";
 }
 function toggleDis(obj_name){
@@ -49,7 +54,14 @@ function play(Id){
     }
     if (wincondition(board)){
         var message="Congratulations! Player"+winner+" wins.";
+        if(winner==1){
+            p1s++
+        }
+        else{
+            p2s++
+        }
         EndGame(message);
+        updateScore();
     }
     else if (turn===9){
         EndGame("Good play! It was a tie");
@@ -109,4 +121,8 @@ function wincondition(board){
 function EndGame(message){
     toggleDis("stage3");
     document.getElementsByClassName("endscr")[0].innerHTML=message;
+}
+function updateScore(){
+    document.getElementById("p1s").innerHTML="Player1's Score:"+p1s;
+    document.getElementById("p2s").innerHTML="Player1's Score:"+p2s;
 }
