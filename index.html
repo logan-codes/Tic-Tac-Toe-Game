@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="stage1 welcomescr" style="display: block;">
+    <div class="stage1" style="display: flex;">
         <h1 class="welcometxt">Welcome to the Tick Tac Toe Game</h1>
         <button class="startbtn" onclick="start()">Start</button>
     </div>
-    <div class="stage2 turndis" style="display: none;">
+    <div class="stage2" style="display: none;">
+    <div class="turndis" >
     <h1 class="p1" id="pdis">Player1's Turn</h1>
     </div>
-    <div class="stage2 grid" style="display: none;"> 
+    <div class="grid"> 
         <button id="1" onclick="play(1)"></button>
         <button id="2" onclick="play(2)"></button>
         <button id="3" onclick="play(3)"></button>
@@ -26,12 +27,18 @@
         <button id="8" onclick="play(8)"></button>
         <button id="9" onclick="play(9)"></button>
     </div>
-    <div class="stage2 back" style="display: none;">
-    <button class="backbtn" onclick="MainMenu()">Main Menu</button>
+    <div class="back">
+    <button class="backbtn" onclick="MainMenu('back')">Back</button>
+    </div>
     </div>
     <div class="stage3" style="display: none;">
+        <div class="endgameDis">
         <h1 class="endscr"></h1>
-        <button onclick="reset()">Rematch</button>
+        <div class="endgamebtns">
+            <button onclick="reset()">Rematch</button>
+            <button onclick="MainMenu('quit')">Quit</button>
+        </div>
+        </div>
     </div>
 </body>
 </html>

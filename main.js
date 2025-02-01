@@ -4,16 +4,21 @@ let winner;
 function start(){
     toggleDis("stage1");
     toggleDis("stage2");
+    document.body.style.backgroundColor= "rgb(94, 4, 4)";
 }
-function MainMenu(){
+function MainMenu(where){
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
+    if (where=="back"){
+        toggleDis("stage3"); 
+    }
+    document.body.style.backgroundColor= "rgb(255, 255, 255)";
 }
 function toggleDis(obj_name){
     var obj = document.getElementsByClassName(obj_name);
     for (i=0;i<obj.length;i++){
-        if (obj[i].style.display === "none"){
+        if (obj[i].style.display == "none"){
             obj[i].style.display = "flex";
         }
         else{
@@ -43,13 +48,11 @@ function play(Id){
         document.body.style.backgroundColor = "rgb(94, 4, 4)";
     }
     if (wincondition(board)){
-        alert("Congratulations Player"+winner+" wins.")
-        //EndGame("Congratulations Player"+winner+" wins.");
-        reset();
+        var message="Congratulations! Player"+winner+" wins.";
+        EndGame(message);
     }
     else if (turn===9){
-        alert("Tie.");
-        reset();
+        EndGame("Good play! It was a tie");
     }
 
 }
@@ -105,5 +108,5 @@ function wincondition(board){
 }
 function EndGame(message){
     toggleDis("stage3");
-    document.getElementsByClassName("endscr").innerHTML=message;
+    document.getElementsByClassName("endscr")[0].innerHTML=message;
 }
