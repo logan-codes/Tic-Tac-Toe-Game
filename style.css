@@ -50,19 +50,17 @@ body {
 }
 
 .turndis {
-    text-align: center;
     display: flex;
     flex-flow: row;
-    width: 100vw;
     align-items: center;
     gap: 2px;
     justify-content: space-around;
+    width: 100vw;
 }
 
 h1.p1 {
     color: #f00;
     background-color: rgb(239, 118, 118);
-    font-size: xx-large;
     border: 0px;
     border-radius: 6px;
     padding: 2%;
@@ -71,7 +69,6 @@ h1.p1 {
 h1.p2 {
     color: blue;
     background-color: rgb(80, 74, 252);
-    font-size: xx-large;
     border: 0px;
     border-radius: 6px;
     padding: 2%;
@@ -156,11 +153,10 @@ button.player2:hover {
     padding: 2%;
 }
 
-@media (max-width: 800px) {
-    .p1{
-        font-size: large;
-    }
-    .p2{
-        font-size: large;
+@media (max-width: 450px) {
+    .turndis {
+        justify-content: center;
+        width: 100%;
+        transform: scale(60%);
     }
 }
