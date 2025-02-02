@@ -2,16 +2,23 @@ body {
     background-color: rgb(255, 255, 255);
     margin: 0;
 }
-
+.invis{
+    display:None;
+}
 .stage1 {
+    position: fixed;
+    margin-top: 10vh;
+    width: 100vw;
     justify-content: center;
     align-items: center;
     flex-flow: column;
     flex-wrap: wrap;
     height: 100vh; 
+    z-index: 0;
 }
 
 .stage2 {
+    margin-top: 60px;
     z-index: 1;
     justify-content: center;
     align-items: center;
@@ -22,7 +29,7 @@ body {
     width: 100vw;
 }
 .stage3 {
-    position: relative;
+    position: fixed;
     background-color: rgba(0,0,0,0.4);
     justify-content: center;
     align-items: center;
@@ -32,6 +39,59 @@ body {
     height: 100vh; 
     width: 100vw;
     z-index: 2;
+}
+
+.Menu{
+    display: flex;
+    position: fixed;
+    flex-flow: column;
+    z-index: 4;
+    width: 100vw;
+}
+.menuBar{
+    background-color: #575656;
+    padding: 14px;
+    height: 5vh;
+    display: flex;
+    gap: 9px;
+    flex-flow: row;
+    top: 0;
+    width: 100vw;
+    align-items: center;
+}
+.menubtns{
+    flex-flow: column;
+    width: 25vw;
+}
+.menubtns button{
+    margin: 20px;
+    height: 18vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.menubtns img{
+    height: 20px;
+    width: 20px;
+}
+
+.menuicon{
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+}
+.logo{
+    width: 5%;    
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    color: beige;
 }
 
 .welcometxt {

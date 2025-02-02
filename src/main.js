@@ -9,6 +9,7 @@ function start(){
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
 }
 function MainMenu(where){
+    if(where != "home"){}
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
@@ -19,6 +20,18 @@ function MainMenu(where){
     p2s=0;
     updateScore();
     document.body.style.backgroundColor= "rgb(255, 255, 255)";
+    toggleMenu();
+}
+function toggleMenu(){
+    let menuObj=document.getElementsByClassName("menubtns")[0];
+    if (menuObj.style.display=="none"){
+        menuObj.style.display="flex";
+        document.getElementsByClassName("menuicon")[0].src="../media/images/close.png"
+    }
+    else{
+        menuObj.style.display="none";
+        document.getElementsByClassName("menuicon")[0].src="../media/images/menu.png"
+    }
 }
 function toggleDis(obj_name){
     var obj = document.getElementsByClassName(obj_name);

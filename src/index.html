@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tick Tac Toe</title>
-    <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 </head>
 <body>
+        <div class="Menu">
+            <div class="menuBar" onclick="toggleMenu()">
+                <img class="menuicon" src="../media/images/menu.png">
+                <a class="title">
+                    <img class="logo" src="../media/images/tic-tac-toe.png">
+                    Tic-Tac-Toe
+                </a>
+            </div>
+            <div class="menubtns" style="display: none;">
+                <button onclick="toggleMenu()"><img src="../media/images/play-button-arrowhead.png">Resume</button>
+                <button onclick="MainMenu('back')"><img src="../media/images/menu.png">Main Menu</button>
+                <button><img src="../media/images/gear.png">Settings</button>
+                <button><img src="../media/images/question-sign.png">how to play</button>
+            </div>
+        </div>
+
     <div class="stage1" style="display: flex;">
         <h1 class="welcometxt">Welcome to the Tick Tac Toe Game</h1>
-        <button class="startbtn" onclick="start()">Start</button>
+        <div>
+            <button class="startbtn" onclick="start()">Start</button>
+            <div class="modeSelec invis">
+                <button>vs Bot</button>
+                <button>Vs Friend</button>
+                <div class="timeSelec invis">
+                    <button>caual</button>
+                    <button>quick draw</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="stage2" style="display: none;">
         <div class="turndis" >
