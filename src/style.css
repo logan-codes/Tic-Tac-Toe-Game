@@ -98,6 +98,8 @@ body {
     display: flex;
     height: 30vh;
     width: 30vw;
+    align-items: center;
+    justify-content: center;
 }
 .modeSelec{
     flex-flow: column;
