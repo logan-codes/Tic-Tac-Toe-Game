@@ -45,11 +45,11 @@ function toggleMenu(){
     let menuObj=document.getElementsByClassName("menubtns")[0];
     if (menuObj.style.display=="none"){
         menuObj.style.display="flex";
-        document.getElementsByClassName("menuicon")[0].src="../media/images/close.png"
+        document.getElementsByClassName("menuicon")[0].src="media/images/close.png"
     }
     else{
         menuObj.style.display="none";
-        document.getElementsByClassName("menuicon")[0].src="../media/images/menu.png"
+        document.getElementsByClassName("menuicon")[0].src="media/images/menu.png"
     }
 }
 function toggleDis(obj_name){
