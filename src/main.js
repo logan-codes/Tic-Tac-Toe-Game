@@ -4,6 +4,17 @@ let winner;
 let p1s=0;
 let p2s=0;
 function start(){
+    toggleDis("startbtn");
+    toggleDis("modeSelec");
+}
+function VsFriend(){
+    toggleDis("stage1");
+    toggleDis("stage2");
+    document.body.style.backgroundColor= "rgb(94, 4, 4)";
+    document.getElementById("Resume").disabled = false;
+    document.getElementById("MainMenu").disabled = false;
+}
+function VsBot(){
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
@@ -11,12 +22,14 @@ function start(){
     document.getElementById("MainMenu").disabled = false;
 }
 function MainMenu(where){
-    if(where != "home"){}
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
     if (where=="back"){
-        toggleDis("stage3"); 
+        toggleDis("stage3");
+    }
+    else{
+        toggleMenu();
     }
     p1s=0;
     p2s=0;
@@ -25,6 +38,8 @@ function MainMenu(where){
     toggleMenu();
     document.getElementById("Resume").disabled = true;
     document.getElementById("MainMenu").disabled = true;
+    toggleDis("startbtn");
+    toggleDis("modeSelec");
 }
 function toggleMenu(){
     let menuObj=document.getElementsByClassName("menubtns")[0];

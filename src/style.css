@@ -94,7 +94,28 @@ body {
     align-items: center;
     color: beige;
 }
-
+#selecBtns{
+    display: flex;
+    height: 30vh;
+    width: 30vw;
+}
+.modeSelec{
+    flex-flow: column;
+    gap: 5px;
+    flex-grow: 2;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+.modeSelec button{
+    background-color: #000000;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    height: 20%;
+    width: 100%;
+    padding: 5px;
+}
 .welcometxt {
     color: rgb(0, 0, 0);
     text-align: center;
@@ -108,6 +129,7 @@ body {
     font-weight: 100;
     border: none;
     border-radius: 13px;
+    align-items: center;
 }
 
 .turndis {
