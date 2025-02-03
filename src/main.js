@@ -7,6 +7,8 @@ function start(){
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
+    document.getElementById("Resume").disabled = false;
+    document.getElementById("MainMenu").disabled = false;
 }
 function MainMenu(where){
     if(where != "home"){}
@@ -21,6 +23,8 @@ function MainMenu(where){
     updateScore();
     document.body.style.backgroundColor= "rgb(255, 255, 255)";
     toggleMenu();
+    document.getElementById("Resume").disabled = true;
+    document.getElementById("MainMenu").disabled = true;
 }
 function toggleMenu(){
     let menuObj=document.getElementsByClassName("menubtns")[0];

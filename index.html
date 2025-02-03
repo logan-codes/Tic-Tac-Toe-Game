@@ -17,15 +17,15 @@
                 </a>
             </div>
             <div class="menubtns" style="display: none;">
-                <button onclick="toggleMenu()"><img src="media/images/play-button-arrowhead.png">Resume</button>
-                <button onclick="MainMenu('back')"><img src="media/images/menu.png">Main Menu</button>
+                <button id="Resume" onclick="toggleMenu()" disabled><img src="media/images/play-button-arrowhead.png">Resume</button>
+                <button id="MainMenu" onclick="MainMenu('back')" disabled><img src="media/images/menu.png">Main Menu</button>
                 <button><img src="media/images/gear.png">Settings</button>
                 <button><img src="media/images/question-sign.png">how to play</button>
             </div>
         </div>
 
     <div class="stage1" style="display: flex;">
-        <h1 class="welcometxt">Welcome to the Tick Tac Toe Game</h1>
+        <h1 class="welcometxt">Welcome to the Tic Tac Toe Game</h1>
         <div>
             <button class="startbtn" onclick="start()">Start</button>
             <div class="modeSelec invis">
@@ -54,9 +54,6 @@
             <button id="7" onclick="play(7)"></button>
             <button id="8" onclick="play(8)"></button>
             <button id="9" onclick="play(9)"></button>
-        </div>
-        <div class="back">
-            <button class="backbtn" onclick="MainMenu('back')">Quit</button>
         </div>
     </div>
     <div class="stage3" style="display: none;">
