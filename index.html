@@ -12,33 +12,51 @@
             <div class="menuBar" onclick="toggleMenu()">
                 <img class="menuicon" src="media/images/menu.png">
                 <a class="title">
-                    <img class="logo" src="media/images/tic-tac-toe.png">
+                    <img class="icon" src="media/images/tic-tac-toe.png">
                     Tic-Tac-Toe
                 </a>
             </div>
-            <div class="menubtns" style="display: none;">
-                <button id="Resume" onclick="toggleMenu()" disabled><img src="media/images/play-button-arrowhead.png">Resume</button>
-                <button id="MainMenu" onclick="MainMenu('back')" disabled><img src="media/images/menu.png">Main Menu</button>
-                <button><img src="media/images/gear.png">Settings</button>
-                <button><img src="media/images/question-sign.png">how to play</button>
+            <div class="menubtns">
+                <button id="Resume" onclick="toggleMenu()" >
+                    <img class="icon" src="media/images/play-button-arrowhead.png">
+                    <span>Resume</span>
+                </button>
+                <button id="MainMenu" onclick="MainMenu()">
+                    <img class="icon"src="media/images/menu.png">
+                    <span>Main Menu</span>
+                </button>
+                <button>
+                    <img class="icon" src="media/images/gear.png">
+                    <span>Settings</span>
+                </button>
+                <button>
+                    <img class="icon" src="media/images/question-sign.png">
+                    <span>How to play</span>
+                </button>
             </div>
         </div>
 
     <div class="stage1" style="display: flex;">
         <h1 class="welcometxt">Welcome to the Tic Tac Toe Game</h1>
         <div id="selecBtns">
-            <button class="startbtn" onclick="start()">Start</button>
-            <div class="modeSelec" style="display: none;">
-                <button onclick="VsBot()">Vs Bot</button>
-                <button onclick="VsFriend()">Vs Friend</button>
-                <div class="timeSelec" style="display: none;">
-                    <button>caual</button>
-                    <button>quick draw</button>
-                </div>
+            <button class="startbtn" onclick="Start()">Start</button>
+            <div class="modeSelec">
+                <button onclick="Casual()"> 
+                    <img class="bicon" src="media/images/console.png">
+                    <span>Casual</span>
+                </button>
+                <button onclick="QuickDraw()">
+                    <img class="bicon" src="media/images/back-in-time.png"> 
+                    <span>Quick Draw</span>
+                </button>
+                <button onclick="Back()">
+                    <img class="bicon" src="media/images/arrow.png">
+                    <span>Back</span>
+                </button>
             </div>
         </div>
     </div>
-    <div class="stage2" style="display: none;">
+    <div class="stage2">
         <div class="turndis" >
             <h1 class="p1" id="p1s">Player1's Score: 0</h1>
             <h1 class="p1" id="pdis">Player1's Turn</h1>
@@ -56,12 +74,12 @@
             <button id="9" onclick="play(9)"></button>
         </div>
     </div>
-    <div class="stage3" style="display: none;">
+    <div class="stage3">
         <div class="endgameDis">
         <h1 class="endscr"></h1>
         <div class="endgamebtns">
             <button onclick="reset()">Rematch</button>
-            <button onclick="MainMenu('quit')">Quit</button>
+            <button onclick="Quit()">Quit</button>
         </div>
         </div>
     </div>

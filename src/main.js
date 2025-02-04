@@ -3,43 +3,56 @@ let board=[0,0,0,0,0,0,0,0,0,0]
 let winner;
 let p1s=0;
 let p2s=0;
-function start(){
+
+function Start(){
     toggleDis("startbtn");
     toggleDis("modeSelec");
 }
-function VsFriend(){
+function Casual(){
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
-    document.getElementById("Resume").disabled = false;
-    document.getElementById("MainMenu").disabled = false;
+    toggleDis("Resume");
+    toggleDis("MainMenu")
 }
-function VsBot(){
+function QuickDraw(){
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
-    document.getElementById("Resume").disabled = false;
-    document.getElementById("MainMenu").disabled = false;
+    toggleDis("Resume");
+    toggleDis("MainMenu")
 }
-function MainMenu(where){
+function MainMenu(){
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
-    if (where=="back"){
-        toggleDis("stage3");
-    }
-    else{
-        toggleMenu();
-    }
+    toggleDis("stage3")
     p1s=0;
     p2s=0;
     updateScore();
     document.body.style.backgroundColor= "rgb(255, 255, 255)";
     toggleMenu();
-    document.getElementById("Resume").disabled = true;
-    document.getElementById("MainMenu").disabled = true;
+    toggleDis("Resume");
+    toggleDis("MainMenu");
     toggleDis("startbtn");
     toggleDis("modeSelec");
+}
+function Quit(){
+    reset();
+    toggleDis("stage1");
+    toggleDis("stage2");
+    p1s=0;
+    p2s=0;
+    updateScore();
+    document.body.style.backgroundColor= "rgb(255, 255, 255)";
+    toggleDis("modeSelec");
+    toggleDis("startbtn");
+    toggleDis("Resume");
+    toggleDis("MainMenu")
+}
+function Back(){
+    toggleDis("modeSelec");
+    toggleDis("startbtn");
 }
 function toggleMenu(){
     let menuObj=document.getElementsByClassName("menubtns")[0];
@@ -54,14 +67,26 @@ function toggleMenu(){
 }
 function toggleDis(obj_name){
     var obj = document.getElementsByClassName(obj_name);
-    for (i=0;i<obj.length;i++){
-        if (obj[i].style.display == "none"){
-            obj[i].style.display = "flex";
-        }
-        else{
-            obj[i].style.display = "none";
+    if (obj.length > 0){
+        for (i=0;i<obj.length;i++){
+            if (obj[i].style.display == "none"){
+                obj[i].style.display = "flex";
+            }
+            else{
+                obj[i].style.display = "none";
+            }
         }
     }
+    else{ 
+        obj = document.getElementById(obj_name)
+        if (obj.style.display == "none"){
+            obj.style.display = "flex";
+        }
+        else{
+            obj.style.display = "none";
+        }
+    }
+    console.log(obj);
 }
 function play(Id){
     var player1 = "X";
@@ -158,3 +183,12 @@ function updateScore(){
     document.getElementById("p1s").innerHTML="Player1's Score:"+p1s;
     document.getElementById("p2s").innerHTML="Player1's Score:"+p2s;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    toggleDis("stage3");
+    toggleDis("stage2");
+    toggleDis("modeSelec");
+    toggleDis("menubtns");
+    toggleDis("Resume");
+    toggleDis("MainMenu");
+});
