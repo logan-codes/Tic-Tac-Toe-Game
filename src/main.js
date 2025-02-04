@@ -5,6 +5,7 @@ let p1s=0;
 let p2s=0;
 let mode;
 let loop;
+let time;
 let timerID;
 
 function Start(){
@@ -36,6 +37,10 @@ function QuickDraw(){
             clearInterval(loop);
         }
     },1000);
+}
+function Resume(){
+    toggleMenu();
+    timer(time,"countdown");
 }
 function MainMenu(){
     reset();
@@ -83,7 +88,7 @@ function timer(dur,obj_name){
     if (timerID){
         clearInterval(timerID);
     }
-    var time = dur;
+    time = dur;
     var obj = document.getElementsByClassName(obj_name)[0]
     obj.innerHTML = time;
     timerID = setInterval(() =>{
@@ -111,6 +116,9 @@ function toggleMenu(){
     else{
         menuObj.style.display="none";
         document.getElementsByClassName("menuicon")[0].src="media/images/menu.png"
+    }
+    if (timerID){
+        clearInterval(timerID);
     }
 }
 function toggleDis(obj_name){
