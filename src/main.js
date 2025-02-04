@@ -38,10 +38,7 @@ function QuickDraw(){
         }
     },1000);
 }
-function Resume(){
-    toggleMenu();
-    timer(time,"countdown");
-}
+
 function MainMenu(){
     reset();
     toggleDis("stage1");
@@ -119,6 +116,10 @@ function toggleMenu(){
     }
     if (timerID){
         clearInterval(timerID);
+        timerID=null;
+    }
+    else{
+        timer(time,"countdown");
     }
 }
 function toggleDis(obj_name){
