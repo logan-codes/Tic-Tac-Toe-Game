@@ -30,7 +30,6 @@ function QuickDraw(){
     toggleDis("MainMenu");
     timer(10,"countdown");
     loop =setInterval(()=>{
-        console.log("loop")
         if(document.getElementsByClassName("countdown")[0].innerHTML=="Time's up"){
             let ply= turn%2==0?"player2":"player1";
             EndGame(ply+"has won. due to Time out");
@@ -79,7 +78,6 @@ function Quit(){
 function Back(){
     toggleDis("modeSelec");
     toggleDis("startbtn");
-    toggleDis("countdown");
 }
 function timer(dur,obj_name){
     if (timerID){
@@ -89,7 +87,6 @@ function timer(dur,obj_name){
     var obj = document.getElementsByClassName(obj_name)[0]
     obj.innerHTML = time;
     timerID = setInterval(() =>{
-        console.log("timer");
         if (time>0){
             time--;
             obj.innerHTML = time;
