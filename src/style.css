@@ -36,6 +36,7 @@ body {
     flex-wrap: wrap;
     position: fixed;
     width: 100vw;
+    z-index: 0;
 }
 .stage3 {
     position: fixed;
@@ -54,7 +55,7 @@ body {
     display: flex;
     position: fixed;
     flex-flow: column;
-    z-index: 4;
+    z-index: 1;
     width: 100vw;
 }
 .menuBar{
@@ -78,8 +79,9 @@ body {
     padding-left: 2%;
 }
 .menubtns button{
-    flex-grow: 2;
-    flex-shrink: 2;
+    display: flex;
+    height: 20vh;
+    width: 20vw;
     justify-content: center;
     align-items: center;
     gap: 3px;
@@ -93,6 +95,9 @@ body {
     height: 20px;
 }
 
+.countdown{
+    color: azure;
+}
 
 .title{
     display: flex;

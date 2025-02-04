@@ -3,30 +3,45 @@ let board=[0,0,0,0,0,0,0,0,0,0]
 let winner;
 let p1s=0;
 let p2s=0;
+let mode;
+let loop;
+let timerID;
 
 function Start(){
     toggleDis("startbtn");
     toggleDis("modeSelec");
 }
 function Casual(){
+    mode="casual";
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
     toggleDis("Resume");
     toggleDis("MainMenu")
+    toggleDis("countdown");
 }
 function QuickDraw(){
+    mode="quickDraw";
     toggleDis("stage1");
     toggleDis("stage2");
     document.body.style.backgroundColor= "rgb(94, 4, 4)";
     toggleDis("Resume");
-    toggleDis("MainMenu")
+    toggleDis("MainMenu");
+    timer(10,"countdown");
+    loop =setInterval(()=>{
+        console.log("loop")
+        if(document.getElementsByClassName("countdown")[0].innerHTML=="Time's up"){
+            let ply= turn%2==0?"player2":"player1";
+            EndGame(ply+"has won. due to Time out");
+            clearInterval(loop);
+        }
+    },1000);
 }
 function MainMenu(){
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
-    toggleDis("stage3")
+    toggleDis("stage3");
     p1s=0;
     p2s=0;
     updateScore();
@@ -36,6 +51,11 @@ function MainMenu(){
     toggleDis("MainMenu");
     toggleDis("startbtn");
     toggleDis("modeSelec");
+    stopTimer();
+    clearInterval(loop);
+    if(mode=="casual"){
+        toggleDis("countdown");
+    }
 }
 function Quit(){
     reset();
@@ -48,11 +68,39 @@ function Quit(){
     toggleDis("modeSelec");
     toggleDis("startbtn");
     toggleDis("Resume");
-    toggleDis("MainMenu")
+    toggleDis("MainMenu");
+    stopTimer();
+    if(mode=="casual"){
+        toggleDis("countdown");
+    }
 }
 function Back(){
     toggleDis("modeSelec");
     toggleDis("startbtn");
+    toggleDis("countdown");
+}
+function timer(dur,obj_name){
+    if (timerID){
+        clearInterval(timerID);
+    }
+    var time = dur;
+    var obj = document.getElementsByClassName(obj_name)[0]
+    obj.innerHTML = time;
+    timerID = setInterval(() =>{
+        console.log("timer");
+        if (time>0){
+            time--;
+            obj.innerHTML = time;
+        }
+        else if (time==0){
+            clearInterval(timerID);
+            obj.innerHTML = "Time's up";
+        }
+        else{
+            clearInterval(timerID);
+        }
+    }
+    ,1000)
 }
 function toggleMenu(){
     let menuObj=document.getElementsByClassName("menubtns")[0];
@@ -109,6 +157,7 @@ function play(Id){
         document.getElementById("pdis").className="p1"
         document.body.style.backgroundColor = "rgb(94, 4, 4)";
     }
+    timer(10,"countdown");
     if (wincondition(board)){
         var message="Congratulations! Player"+winner+" wins.";
         if(winner==1){
@@ -123,7 +172,6 @@ function play(Id){
     else if (turn===9){
         EndGame("Good play! It was a tie");
     }
-
 }
 
 function reset(){
@@ -136,6 +184,7 @@ function reset(){
         document.getElementById("pdis").className="p1"
         document.body.style.backgroundColor = "rgb(94, 4, 4)";
     }
+    timer(10,"countdown");
     toggleDis("stage3");
 }
 function wincondition(board){
@@ -176,12 +225,17 @@ function wincondition(board){
     }
 }
 function EndGame(message){
+    stopTimer();
     toggleDis("stage3");
     document.getElementsByClassName("endscr")[0].innerHTML=message;
 }
 function updateScore(){
     document.getElementById("p1s").innerHTML="Player1's Score:"+p1s;
     document.getElementById("p2s").innerHTML="Player1's Score:"+p2s;
+}
+function stopTimer(){
+    clearInterval(timerID);
+    clearInterval(loop);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
