@@ -13,8 +13,10 @@ function Start(){
     toggleDis("startbtn");
     toggleDis("modeSelec");
     SFXaudio.play();
+    document.getElementsByClassName("welcometxt")[0].innerHTML="Select a mode to start the game";
 }
 function Casual(){
+    document.getElementsByClassName("welcometxt")[0].innerHTML="Welcome to the Tic Tac Toe Game";
     BGaudio.pause();
     CBGaudio.play();
     SFXaudio.play();
@@ -27,6 +29,7 @@ function Casual(){
     toggleDis("countdown");
 }
 function QuickDraw(){
+    document.getElementsByClassName("welcometxt")[0].innerHTML="Welcome to the Tic Tac Toe Game";
     BGaudio.pause();
     QBGaudio.play();
     SFXaudio.play();
@@ -109,6 +112,7 @@ function Back(){
     SFXaudio.play();
     toggleDis("modeSelec");
     toggleDis("startbtn");
+    document.getElementsByClassName("welcometxt")[0].innerHTML="Welcome to the Tic Tac Toe Game";
 }
 function timer(dur,obj_name){
     if (timerID){
