@@ -94,7 +94,29 @@ body {
     width: 20px;
     height: 20px;
 }
-
+.menu{
+    display: flex;
+    align-items: center;
+}
+.Settings-page{
+    background-color: bisque;
+    padding: 5%;
+    height: 40vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 1%;
+}
+.Htp-page{
+    background-color: bisque;
+    padding: 5%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1%;
+}
 .countdown{
     color: azure;
 }
@@ -241,5 +263,8 @@ button.player2:hover {
         justify-content: center;
         width: 100%;
         transform: scale(60%);
+    }
+    .menubtns{
+        width: 100vw;
     }
 }

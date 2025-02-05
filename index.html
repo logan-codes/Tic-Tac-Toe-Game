@@ -8,6 +8,10 @@
     <script src="src/main.js"></script>
 </head>
 <body>
+    <audio id="BGaudio" src="media/audio/Farming-By-Moonlight(chosic.com).mp3" loop></audio>
+    <audio id="QBGaudio" src="media/audio/Rafael_Archangel_-_08_-_Two_Heads_-_174bpm(chosic.com).mp3" loop></audio>
+    <audio id="CBGaudio" src="media/audio/HinaCC0_004_Sound-of-passion(chosic.com).mp3" loop></audio>
+    <audio id="SFXaudio" src="media/audio/click-10.mp3" ></audio>
         <div class="Menu">
             <div class="menuBar" onclick="toggleMenu()">
                 <img class="menuicon" src="media/images/menu.png">
@@ -16,23 +20,41 @@
                     Tic-Tac-Toe
                 </a>
             </div>
-            <div class="menubtns">
-                <button id="Resume" onclick="toggleMenu()" >
-                    <img class="icon" src="media/images/play-button-arrowhead.png">
-                    <span>Resume</span>
-                </button>
-                <button id="MainMenu" onclick="MainMenu()">
-                    <img class="icon"src="media/images/menu.png">
-                    <span>Main Menu</span>
-                </button>
-                <button>
-                    <img class="icon" src="media/images/gear.png">
-                    <span>Settings</span>
-                </button>
-                <button>
-                    <img class="icon" src="media/images/question-sign.png">
-                    <span>How to play</span>
-                </button>
+            <div class="menu">
+                <div class="menubtns">
+                    <button id="Resume" onclick="toggleMenu()" >
+                        <img class="icon" src="media/images/play-button-arrowhead.png">
+                        <span>Resume</span>
+                    </button>
+                    <button id="MainMenu" onclick="MainMenu()">
+                        <img class="icon"src="media/images/menu.png">
+                        <span>Main Menu</span>
+                    </button>
+                    <button id="Settings" onclick="Settings()">
+                        <img class="icon" src="media/images/gear.png">
+                        <span>Settings</span>
+                    </button>
+                    <button id="Htp" onclick="Htp()">
+                        <img class="icon" src="media/images/question-sign.png">
+                        <span>How to play</span>
+                    </button>
+                </div>
+                <div class = "Settings-page">
+                    <span>Background Music Volume</span>
+                    <input type="range" id="BGvolume" min="0" max="100" onchange="BGvolume()">
+                    <span>Sound Effect Volume</span>
+                    <input type="range" id="SFXvolume" min="0" max="100" onchange="SFXvolume()">
+                    <button class="MUTE" onclick="Mute()">Mute all</button>
+                </div>
+                <div class = "Htp-page">
+                    <h1>How to play</h1>
+                    <p>1. Select the game mode you want to play</p>
+                    <p>2. Click on the start button</p>
+                    <p>3. Click on the grid to place your mark</p>
+                    <p>4. The player who gets 3 marks in a row wins</p>
+                    <p>5. The game will end when a player wins or the grid is full</p>
+                    <p>6. Click on the rematch button to play again</p>
+                </div>
             </div>
         </div>
 

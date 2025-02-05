@@ -8,11 +8,16 @@ let loop;
 let time;
 let timerID;
 
+
 function Start(){
     toggleDis("startbtn");
     toggleDis("modeSelec");
+    SFXaudio.play();
 }
 function Casual(){
+    BGaudio.pause();
+    CBGaudio.play();
+    SFXaudio.play();
     mode="casual";
     toggleDis("stage1");
     toggleDis("stage2");
@@ -22,6 +27,9 @@ function Casual(){
     toggleDis("countdown");
 }
 function QuickDraw(){
+    BGaudio.pause();
+    QBGaudio.play();
+    SFXaudio.play();
     mode="quickDraw";
     toggleDis("stage1");
     toggleDis("stage2");
@@ -39,6 +47,10 @@ function QuickDraw(){
 }
 
 function MainMenu(){
+    SFXaudio.play();
+    BGaudio.play();
+    CBGaudio.pause();
+    QBGaudio.pause();
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
@@ -58,7 +70,25 @@ function MainMenu(){
         toggleDis("countdown");
     }
 }
+function Settings(){
+    SFXaudio.play();
+    if (document.getElementsByClassName("Htp-page")[0].style.display=="flex"){
+        toggleDis("Htp-page");
+    }
+    toggleDis("Settings-page");
+}
+function Htp(){
+    SFXaudio.play();
+    if (document.getElementsByClassName("Settings-page")[0].style.display=="flex"){
+        toggleDis("Settings-page");
+    }
+    toggleDis("Htp-page");
+}
 function Quit(){
+    SFXaudio.play();
+    BGaudio.play();
+    CBGaudio.pause();
+    QBGaudio.pause();
     reset();
     toggleDis("stage1");
     toggleDis("stage2");
@@ -76,6 +106,7 @@ function Quit(){
     }
 }
 function Back(){
+    SFXaudio.play();
     toggleDis("modeSelec");
     toggleDis("startbtn");
 }
@@ -102,6 +133,8 @@ function timer(dur,obj_name){
     ,1000)
 }
 function toggleMenu(){
+    SFXaudio.pause();
+    SFXaudio.play();
     let menuObj=document.getElementsByClassName("menubtns")[0];
     if (menuObj.style.display=="none"){
         menuObj.style.display="flex";
@@ -118,6 +151,13 @@ function toggleMenu(){
     else{
         timer(time,"countdown");
     }
+    if (document.getElementsByClassName("Settings-page")[0].style.display=="flex"){
+        toggleDis("Settings-page");
+    }
+    if (document.getElementsByClassName("Htp-page")[0].style.display=="flex"){
+        toggleDis("Htp-page");
+    }
+    
 }
 function toggleDis(obj_name){
     var obj = document.getElementsByClassName(obj_name);
@@ -143,6 +183,8 @@ function toggleDis(obj_name){
     console.log(obj);
 }
 function play(Id){
+    SFXaudio.pause();
+    SFXaudio.play();
     var player1 = "X";
     var player2 = "O";
     if (turn%2==0&&board[Id]==0){
@@ -181,6 +223,7 @@ function play(Id){
 }
 
 function reset(){
+    SFXaudio.play();
     turn=0;
     board=[0,0,0,0,0,0,0,0,0,0];
     for(i=1;i<10;i++){
@@ -243,6 +286,24 @@ function stopTimer(){
     clearInterval(timerID);
     clearInterval(loop);
 }
+function BGvolume(){
+    var bgv = document.getElementById("BGvolume").value;
+    BGaudio.volume = bgv/100;
+    CBGaudio.volume = bgv/100;
+    QBGaudio.volume = bgv/100;
+}
+function SFXvolume(){
+    var sfxv = document.getElementById("SFXvolume").value;
+    SFXaudio.volume = sfxv/100;
+}
+function Mute(){
+    document.getElementById("BGvolume").value=0;
+    document.getElementById("SFXvolume").value=0;
+    SFXaudio.volume = 0.0;
+    BGaudio.volume = 0.0;
+    CBGaudio.volume = 0.0;
+    QBGaudio.volume = 0.0;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     toggleDis("stage3");
@@ -251,4 +312,13 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleDis("menubtns");
     toggleDis("Resume");
     toggleDis("MainMenu");
+    toggleDis("Settings-page");
+    toggleDis("Htp-page");
 });
+document.addEventListener("load", () => {
+    let BGaudio = document.getElementById("BGaudio");
+    let CBGaudio = document.getElementById("CBGaudio");
+    let QBGaudio = document.getElementById("QBGaudio");
+    let SFXaudio = document.getElementById("SFXaudio");
+    BGaudio.play();
+})
