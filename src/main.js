@@ -144,10 +144,10 @@ function QuickDraw(){
     mode="quickDraw";
     ToggleDis("Stage1");
     ToggleDis("Stage2");
-    document.body.style.backgroundColor= "rgb(94, 4, 4)";
+    document.body.style.backgroundColor= "var(--red-900)";
     ToggleDis("Resume");
     ToggleDis("MainMenu");
-    StartTimer(10,"Countdown");
+    StartTimer(3,"Countdown");
     loop =setInterval(()=>{
         if(document.getElementsByClassName("Countdown")[0].innerHTML=="Time's up"){
             let ply= turn%2==0?"player2":"player1";
@@ -187,7 +187,7 @@ function play(Id){
         document.getElementById("TurnDis").className="P1"
         document.body.style.backgroundColor = "var(--red-900)";
     }
-    StartTimer(10,"Countdown");
+    StartTimer(3,"Countdown");
     if (WinCondition(board)){
         var message="Congratulations! Player"+winner+" wins.";
         if(winner==1){
@@ -291,9 +291,9 @@ function Reset(){
         document.getElementById(i).classList.remove("Player1","Player2");
         document.getElementById("TurnDis").innerHTML="Player1's Turn";
         document.getElementById("TurnDis").className="P1"
-        document.body.style.backgroundColor = "rgb(94, 4, 4)";
+        document.body.style.backgroundColor = "var(--red-900)";
     }
-    StartTimer(10,"Countdown");
+    StartTimer(3,"Countdown");
     ToggleDis("Stage3");
 }
 
@@ -348,7 +348,6 @@ function UpdateScore(){
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    //ToggleDis("Stage1");
     ToggleDis("Stage2");
     ToggleDis("Stage3");
     ToggleDis("Resume");
