@@ -65,7 +65,7 @@ function MainMenu(){
     p1s=0;
     p2s=0;
     UpdateScore();
-    document.body.style.backgroundColor= "rgb(255, 255, 255)";
+    document.body.style.backgroundColor= "var(--grey-400)";
     ToggleMenu();
     ToggleDis("Resume");
     ToggleDis("MainMenu");
@@ -151,7 +151,7 @@ function QuickDraw(){
     loop =setInterval(()=>{
         if(document.getElementsByClassName("Countdown")[0].innerHTML=="Time's up"){
             let ply= turn%2==0?"player2":"player1";
-            EndGame(ply+"has won. due to Time out");
+            EndGame(ply+" has won! due to Time out.");
             clearInterval(loop);
         }
     },1000);
@@ -176,7 +176,7 @@ function play(Id){
         turn++;
         document.getElementById("TurnDis").innerHTML="Player2's Turn";
         document.getElementById("TurnDis").className="P2"
-        document.body.style.backgroundColor = "rgb(4, 28, 94)"
+        document.body.style.backgroundColor = "var(--blue-900)";
     }
     else if(turn%2!=0&&board[Id]==0){
         document.getElementById(Id).innerHTML=player2;
@@ -185,7 +185,7 @@ function play(Id){
         turn++;
         document.getElementById("TurnDis").innerHTML="Player1's Turn";
         document.getElementById("TurnDis").className="P1"
-        document.body.style.backgroundColor = "rgb(94, 4, 4)";
+        document.body.style.backgroundColor = "var(--red-900)";
     }
     StartTimer(10,"Countdown");
     if (WinCondition(board)){
@@ -219,7 +219,7 @@ function Quit(){
     p1s=0;
     p2s=0;
     UpdateScore();
-    document.body.style.backgroundColor= "rgb(255, 255, 255)";
+    document.body.style.backgroundColor= "var(--grey-400)";
     ToggleDis("ModeSelec");
     ToggleDis("StartBtn");
     ToggleDis("Resume");

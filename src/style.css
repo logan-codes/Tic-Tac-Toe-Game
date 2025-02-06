@@ -8,12 +8,14 @@
     --blue-500: #3b82f6;
     --neutral-800: #262626;
     --neutral-50: #fafafa;
-    --stone-950: #0c0a09;
+    --stone-800: #292524;
+    --stone-500: #78716c;
     --stone-50: #fafaf9;
+    --gray-400: #9ca3af;
 }
 
 body {
-    background-color: var(--slate-400);
+    background-color: var(--grey-400);
     margin: 0;
 }
 
@@ -65,6 +67,7 @@ body {
 
 .DropdownItems{
     position: fixed;
+    display: flex;
     top:9vh;
     flex-flow: row;
     height: 91vh;
@@ -73,8 +76,9 @@ body {
 .MenuBtns{
     position: fixed;
     background-color: rgba(0,0,0,0.4);
+    height: 81vh; 
     width: 40vw;
-    padding: 5vw;
+    padding: 5vh 5vw;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -88,43 +92,49 @@ body {
     border-radius: 2vh;
 }
 .MenuBtns div img{
-    height: 90%;
+    height: 10vh;
 }
 .MenuBtns div span{
-    color: white;
+    color: var(--slate-50);
     font-size: 200%;
     font-weight: 600;
 }
 
 .Settings-page{
+    position: fixed;
     background-color: var(--neutral-800);
     color: var(--slate-50);
-    padding: 5%;
-    height: 91vh;
+    left: 50vw;
+    height: 81vh;
+    width: 40%;
+    padding: 5vh 5vw;
     flex-flow: column;
     justify-content: center;
     gap: 1%;
-    width: 40%;
 }
 
 .Htp-page{
+    position: fixed;
     background-color: var(--neutral-800);
     color: var(--slate-50);
-    padding: 5%;
-    height: 91vh;
+    left: 50vw;
+    height: 81vh;
+    width: 40vw;
+    padding: 5vh 5vw;
     flex-flow: column;
     text-align: center;
+    justify-content: center;
     gap: 1%;
 }
 
 .Stage1 {
     display: flex;
     position: absolute;
-    margin-top: 10vh;
+    margin-top: 9vh;
+    height: 91vh; 
     width: 100vw;
     justify-content: center;
     flex-flow: column;
-    height: 100vh; 
     z-index: 0;
 }
 
@@ -143,11 +153,12 @@ body {
 }
 
 .StartBtn {
-    height: 5vh;
-    width: 10vw;
+    display: flex;
+    height: 10vh;
+    width: 20vw;
     background-color: var(--slate-950);
     color: var(--slate-50);
-    font-size: 1vw;
+    font-size: 250%;
     font-weight: 600;
     border: none;
     padding: 1% 2%;
@@ -169,9 +180,9 @@ body {
     height: 100%;
     width: 70%;
     display: flex;
-    color: #000000;
-    border-color: #000000;
-    background-color: aliceblue;
+    color: var(--slate-950);
+    border-color: var(--slate-50);
+    background-color: var(--slate-400);
     border-radius: 5px;
     font-size: 250%;
     align-items: center;
@@ -184,15 +195,15 @@ body {
 }
 
 .Stage2 {
-    margin-top: 60px;
-    z-index: 1;
-    justify-content: center;
+    margin-top: 9vh;
+    height: 91vh; 
+    width: 100vw;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     flex-flow: column;
     flex-wrap: wrap;
     position: fixed;
-    width: 100vw;
     z-index: 0;
 }
 
@@ -205,16 +216,16 @@ body {
     width: 100vw;
 }
 .P1 {
-    color: #f00;
-    background-color: rgb(239, 118, 118);
+    color: var(--red-500);
+    background-color: var(--neutral-50);
     border: 0px;
     border-radius: 6px;
     padding: 2%;
 }
 
 .P2 {
-    color: blue;
-    background-color: rgb(80, 74, 252);
+    color: var(--blue-500);
+    background-color: var(--neutral-50);
     border: 0px;
     border-radius: 6px;
     padding: 2%;
@@ -247,29 +258,29 @@ body {
 }
 
 button.Player1 {
-    background-color: #f00;
+    background-color: var(--red-500);
     font-weight: 600;
-    color: rgb(141, 4, 4);
+    color: var(--red-900);
     font-size: 90px;
 }
 
 button.Player2 {
-    background-color: blue;
+    background-color: var(--blue-500);
     font-weight: 600;
     color: rgb(8, 8, 141);
     font-size: 90px;
 }
 
 button.Player1:hover {
-    background-color: #f00;
+    background-color: var(--red-500);
 }
 
 button.Player2:hover {
-    background-color: blue;
+    background-color: var(--blue-500);
 }
 
 .Countdown{
-    color: azure;
+    color: var(--slate-50);
 }
 
 .Stage3 {
@@ -286,24 +297,48 @@ button.Player2:hover {
 }
 
 .EndScr{
-    background-color:purple;
+    height: 20vh;
+    width: 40vw;
+    display: flex;
+    background-color:var(--stone-800);
     border-radius: 20px;
-    padding: 5%;
+    padding: 5vh 5vw;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.EndTxt{
+    color: var(--stone-50);
+}
+
+.EndBtns{
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .EndBtns button{
-    background-color: #000000;
-    color: white;
+    background-color: var(--stone-500);
+    color: var(--stone-50);
     border:none;
     border-radius: 10%;
-    font-size:larger;
     font-weight: 600;
-    padding: 2%;
+    padding: 1vh 2vw;
 }
 
 @media (max-width: 450px) {
    .MenuBtns{
-       width: 87vw;
-
+       width: 90vw;
    }
+   .Settings-page{
+        left:0;
+        width: 90vw;
+   }
+   .Htp-page{
+        left:0;
+        width: 90vw;
+    }
 }
