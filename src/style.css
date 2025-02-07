@@ -14,6 +14,10 @@
     --gray-400: #9ca3af;
 }
 
+html{
+    font-size: 80%;
+}
+
 body {
     background-color: var(--grey-400);
     margin: 0;
@@ -29,8 +33,8 @@ body {
 .MenuBar{
     position: fixed;
     background-color: var(--neutral-800);
-    padding-left: 2vw;
-    gap: 2vw;
+    padding-left: 1vw;
+    gap: 1vw;
     height: 9vh;
     top: 0;
     width: 100vw;
@@ -40,10 +44,10 @@ body {
 }
 
 #MenuIcon{
-    background-color: var(--slate-400);
-    border-radius: 5px;
+    background-color: var(--stone-50);
+    border-radius: 20%;
     padding: 1vh 1vh;
-    height: 5vh;
+    height: 3vh;
 }
 
 .Title{
@@ -55,7 +59,7 @@ body {
 
 .Title span{
     color: var(--slate-50);
-    font-size: 100%;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -158,7 +162,7 @@ body {
     width: 20vw;
     background-color: var(--slate-950);
     color: var(--slate-50);
-    font-size: 250%;
+    font-size: 3rem;
     font-weight: 600;
     border: none;
     padding: 1% 2%;

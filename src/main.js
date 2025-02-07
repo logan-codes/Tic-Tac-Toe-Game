@@ -13,9 +13,13 @@ function ToggleMenu(){
     SFXaudio.play();
     ToggleDis("DropdownItems");
     if (document.getElementsByClassName("DropdownItems")[0].style.display=="flex"){
+        document.getElementsByClassName("Stage1")[0].style.filter="blur(5px)";
+        document.getElementsByClassName("Stage2")[0].style.filter="blur(5px)";
         document.getElementById("MenuIcon").src="media/images/close.png";
     }   
     else{
+        document.getElementsByClassName("Stage1")[0].style.filter="none";
+        document.getElementsByClassName("Stage2")[0].style.filter="none";
         document.getElementById("MenuIcon").src="media/images/menu.png";
     }
 
@@ -45,9 +49,13 @@ function Resume(){
     }
     ToggleDis("DropdownItems");
     if (document.getElementById("MenuIcon").src=="media/images/close.png"){
+        document.getElementsByClassName("Stage1")[0].style.filter="blur(5px)";
+        document.getElementsByClassName("Stage2")[0].style.filter="blur(5px)";
         document.getElementById("MenuIcon").src="media/images/menu.png";
     }
     else{
+        document.getElementsByClassName("Stage1")[0].style.filter="none";
+        document.getElementsByClassName("Stage2")[0].style.filter="none";
         document.getElementById("MenuIcon").src="media/images/close.png";
     }
     StartTimer(time,"Countdown");
@@ -205,6 +213,8 @@ function play(Id){
 }
 
 function Rematch(){
+    document.getElementsByClassName("Stage1")[0].style.filter="none";
+    document.getElementsByClassName("Stage2")[0].style.filter="none";
     Reset();
 }
 
@@ -228,6 +238,8 @@ function Quit(){
     if(mode=="casual"){
         ToggleDis("Countdown");
     }
+    document.getElementsByClassName("Stage1")[0].style.filter="none";
+    document.getElementsByClassName("Stage2")[0].style.filter="none";
 }
 
 function StartTimer(dur,obj_name){
@@ -338,6 +350,8 @@ function WinCondition(board){
 function EndGame(message){
     StopTimer();
     ToggleDis("Stage3");
+    document.getElementsByClassName("Stage1")[0].style.filter="blur(5px)";
+    document.getElementsByClassName("Stage2")[0].style.filter="blur(5px)";
     document.getElementsByClassName("EndTxt")[0].innerHTML=message;
 }
 
