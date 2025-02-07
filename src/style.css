@@ -77,6 +77,7 @@ body {
     height: 91vh;
     width: 100vw;
 }
+
 .MenuBtns{
     position: fixed;
     background-color: rgba(0,0,0,0.4);
@@ -87,6 +88,7 @@ body {
     flex-flow: column;
     justify-content: space-around;
 }
+
 .MenuBtns div{
     background-color: var(--slate-400);
     display: flex;
@@ -95,9 +97,11 @@ body {
     height: 20%;
     border-radius: 2vh;
 }
+
 .MenuBtns div img{
     height: 10vh;
 }
+
 .MenuBtns div span{
     color: var(--slate-50);
     font-size: 200%;
@@ -194,6 +198,7 @@ body {
     gap: 1%;
     padding: 1vh 1vw;
 }
+
 .ModeSelec div img{
     height: 9vh;
 }
@@ -219,6 +224,7 @@ body {
     justify-content: space-around;
     width: 100vw;
 }
+
 .P1 {
     color: var(--red-500);
     background-color: var(--neutral-50);
@@ -234,7 +240,6 @@ body {
     border-radius: 6px;
     padding: 2%;
 }
-
 
 .Grid {
     display: flex;
