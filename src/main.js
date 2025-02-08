@@ -69,7 +69,6 @@ function MainMenu(){
     Reset();
     ToggleDis("Stage1");
     ToggleDis("Stage2");
-    ToggleDis("Stage3");
     p1s=0;
     p2s=0;
     UpdateScore();
@@ -131,38 +130,38 @@ function Start(){
 }
 
 function Casual(){
-    document.getElementsByClassName("TxtDis")[0].innerHTML="Welcome to the Tic Tac Toe Game";
+    mode="casual";
+    Reset();
     BGaudio.pause();
     CBGaudio.play();
     SFXaudio.play();
-    mode="casual";
     ToggleDis("Stage1");
     ToggleDis("Stage2");
-    document.body.style.backgroundColor= "var(--red-900)";
     ToggleDis("Resume");
     ToggleDis("MainMenu")
     ToggleDis("Countdown");
+    document.getElementsByClassName("TxtDis")[0].innerHTML="Welcome to the Tic Tac Toe Game";
 }
 
 function QuickDraw(){
-    document.getElementsByClassName("TxtDis")[0].innerHTML="Welcome to the Tic Tac Toe Game";
+    mode="quickDraw";
+    Reset();
     BGaudio.pause();
     QBGaudio.play();
     SFXaudio.play();
-    mode="quickDraw";
     ToggleDis("Stage1");
     ToggleDis("Stage2");
-    document.body.style.backgroundColor= "var(--red-900)";
     ToggleDis("Resume");
     ToggleDis("MainMenu");
     StartTimer(3,"Countdown");
     loop =setInterval(()=>{
-        if(document.getElementsByClassName("Countdown")[0].innerHTML=="Time's up"){
+        if(document.getElementsByClassName("Countdown")[0].innerHTML=="0"){
             let ply= turn%2==0?"player2":"player1";
             EndGame(ply+" has won! due to Time out.");
             clearInterval(loop);
         }
     },1000);
+    document.getElementsByClassName("TxtDis")[0].innerHTML="Welcome to the Tic Tac Toe Game";
 }
 
 function Back(){
@@ -215,7 +214,18 @@ function play(Id){
 function Rematch(){
     document.getElementsByClassName("Stage1")[0].style.filter="none";
     document.getElementsByClassName("Stage2")[0].style.filter="none";
-    Reset();
+    ToggleDis("Stage3");
+    ToggleDis("Stage1");
+    ToggleDis("Stage2");
+    ToggleDis("Resume");
+    ToggleDis("MainMenu");
+    if (mode=="casual"){
+        ToggleDis("Countdown");
+        Casual();
+    }
+    else if (mode=="quickDraw"){
+        QuickDraw();
+    }
 }
 
 function Quit(){
@@ -226,6 +236,7 @@ function Quit(){
     Reset();
     ToggleDis("Stage1");
     ToggleDis("Stage2");
+    ToggleDis("Stage3");
     p1s=0;
     p2s=0;
     UpdateScore();
@@ -295,7 +306,6 @@ function ToggleDis(obj_name){
 }
 
 function Reset(){
-    SFXaudio.play();
     turn=0;
     board=[0,0,0,0,0,0,0,0,0,0];
     for(i=1;i<10;i++){
@@ -305,8 +315,6 @@ function Reset(){
         document.getElementById("TurnDis").className="P1"
         document.body.style.backgroundColor = "var(--red-900)";
     }
-    StartTimer(3,"Countdown");
-    ToggleDis("Stage3");
 }
 
 function WinCondition(board){
@@ -376,5 +384,4 @@ document.addEventListener("load", () => {
     let CBGaudio = document.getElementById("CBGaudio");
     let QBGaudio = document.getElementById("QBGaudio");
     let SFXaudio = document.getElementById("SFXaudio");
-    BGaudio.play();
 })
